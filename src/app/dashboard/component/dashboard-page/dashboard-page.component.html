@@ -1,0 +1,22 @@
+<mat-drawer-container class="dashboard-container" hasBackdrop autosize>
+
+  <mat-drawer #drawer class="sidenav-menu" mode="over">
+    <mat-selection-list #menu [multiple]="false">
+      <mat-list-option *ngFor="let menu of menuOptions" [value]="menu.name"
+       (click)="navigate(menu)">
+        {{menu.name | titlecase}}
+      </mat-list-option>
+    </mat-selection-list>
+  </mat-drawer>
+
+  <mat-drawer-content>
+    <mat-toolbar class="custom-nav" color="primary">
+      <button mat-icon-button (click)="drawer.toggle()">
+        <mat-icon class="ma-5">menu</mat-icon>
+      </button>
+      <span class="ma-5">infinit</span>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+
+</mat-drawer-container>

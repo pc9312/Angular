@@ -1,0 +1,42 @@
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+
+interface MenuOption{
+  name: string;
+  url: string;
+}
+
+@Component({
+  selector: 'app-dashboard-page',
+  templateUrl: './dashboard-page.component.html',
+  styleUrls: ['./dashboard-page.component.css']
+})
+export class DashboardPageComponent implements OnInit {
+
+  @ViewChild('drawer') drawer: any;
+
+  menuOptions: MenuOption[] = [
+    {
+      name: 'home',
+      url:'/dashboard'
+    },
+    {
+      name: 'configuration',
+      url:'/dashboard/config'
+    }
+  ]
+
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute
+  ) { }
+
+  ngOnInit(): void {
+  }
+
+  navigate(menu: MenuOption){
+    this.drawer.toggle();
+    this.router.navigate([menu.url]);
+  }
+
+}
