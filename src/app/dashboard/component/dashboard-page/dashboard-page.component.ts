@@ -18,11 +18,15 @@ export class DashboardPageComponent implements OnInit {
   menuOptions: MenuOption[] = [
     {
       name: 'home',
-      url:'/dashboard'
+      url:'/dashboard/home'
     },
     {
       name: 'configuration',
       url:'/dashboard/config'
+    },
+    {
+      name: 'logout',
+      url:'/auth'
     }
   ]
 

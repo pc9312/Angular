@@ -10,11 +10,13 @@ import { DashboardPageComponent } from './component/dashboard-page/dashboard-pag
 import {MatListModule} from '@angular/material/list';
 
 import { SharedModule } from '../shared/shared.module';
+import { HomeComponent } from './component/home/home.component';
 
 
 @NgModule({
   declarations: [
-    DashboardPageComponent
+    DashboardPageComponent,
+    HomeComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,13 @@
+.image-box{
+    width: 90vw;
+    min-height: 80vh;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.image-box img{
+    width: 50vw;
+    min-height: 50vh;
+}

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../../auth.service';
 
 @Component({
   selector: 'app-auth-page',
@@ -15,12 +16,15 @@ export class AuthPageComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) {
     this.loginForm = this.fb.group(
       {
-        emailId: ['', [Validators.required, Validators.email]],
-        loginPassword: ['', [Validators.required]]
+        userId: ['', [Validators.required, Validators.pattern(new RegExp('^(?!\d+$)(?:[a-zA-Z0-9][a-zA-Z0-9 @&$-_]*)?$'))]],
+        loginPassword: ['', [
+          Validators.required, 
+          Validators.pattern(new RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})'))]]
       }
     );
   }
@@ -28,15 +32,23 @@ export class AuthPageComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  get emailId() {
-    return this.loginForm.get('emailId');
+  get userId() {
+    return this.loginForm.get('userId');
   }
   get loginPassword() {
     return this.loginForm.get('loginPassword');
   }
 
   onLogin() {
-    this.router.navigate(['dashboard']);
+    this.authService.login(this.userId?.value, this.loginPassword?.value).subscribe(
+      (data) => {
+        console.log(data)
+      },
+      (error) => {
+        console.log(error)
+      }
+    )
+    this.router.navigate(['dashboard', 'home']);
   }
 
 }

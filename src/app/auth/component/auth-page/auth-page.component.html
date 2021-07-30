@@ -1,56 +1,66 @@
 <section class="auth-container">
-    <mat-toolbar class="custom-nav" color="primary">
+    <mat-toolbar class="custom-nav">
         <span>Infinit</span>
     </mat-toolbar>
-    <section class="auth-box">
-        <form class="login-form" [formGroup]="loginForm">
-            <h1>Sign In</h1>
-            <div class="login-form-field">
-                <mat-icon class="ma-10" color="primary">lock</mat-icon>
-                <mat-form-field>
-                    <mat-label>Email ID</mat-label>
-                    <input matInput type="email" formControlName="emailId">
-                    <button *ngIf="emailId?.value" matSuffix mat-icon-button aria-label="Clear"
-                        (click)="emailId?.setValue('')">
-                        <mat-icon>close</mat-icon>
-                    </button>
-                </mat-form-field>
-                <mat-error *ngIf="emailId?.dirty && emailId?.hasError('required')">
-                    Email ID is <strong>required</strong>
-                </mat-error>
-                <mat-error *ngIf="emailId?.hasError('email')">
-                    Please provide <strong>valid</strong> Email ID
-                </mat-error>
-            </div>
-            <div class="login-form-field">
-                <mat-icon class="ma-10" color="primary">vpn_key</mat-icon>
-                <mat-form-field>
-                    <mat-label>Password</mat-label>
-                    <input matInput [type]="passwordShowIcon ? 'password' : 'text'" formControlName="loginPassword">
-                    <button *ngIf="loginPassword?.value" mat-icon-button matSuffix (click)="passwordShowIcon = !passwordShowIcon" [attr.aria-label]="'Hide password'"
-                        [attr.aria-pressed]="passwordShowIcon">
-                        <mat-icon>{{passwordShowIcon ? 'visibility_off' : 'visibility'}}</mat-icon>
-                    </button>
-                    <button *ngIf="loginPassword?.value" matSuffix mat-icon-button aria-label="Clear"
-                        (click)="loginPassword?.setValue('')">
-                        <mat-icon>close</mat-icon>
-                    </button>
-                </mat-form-field>
-                <mat-error *ngIf="loginPassword?.dirty && loginPassword?.hasError('required')">
-                    Password is <strong>required</strong>
-                </mat-error>
-            </div>
-            <div class="form-buttons">
-                <button mat-raised-button color="primary" [disabled]="!loginForm.valid" (click)="onLogin()">Sign
-                    In</button>
-                <!-- <button mat-button color="primary">Forget Password?</button> -->
-                <button mat-button color="primary">Sign Up</button>
-            </div>
-        </form>
+    <section class="main-container">
+        <section class="image-box">
+            <img src="../../../../assets/images/home-page.jpg" alt="">
+        </section>
+        <section class="auth-box">
+            <form class="login-form" [formGroup]="loginForm">
+                <h1>Sign In</h1>
+                <div class="login-form-field">
+                    <mat-icon class="ma-10" color="primary">lock</mat-icon>
+                    <mat-form-field>
+                        <mat-label>User ID*</mat-label>
+                        <input matInput type="text" formControlName="userId">
+                        <button *ngIf="userId?.value" matSuffix mat-icon-button aria-label="Clear"
+                            (click)="userId?.setValue('')">
+                            <mat-icon>close</mat-icon>
+                        </button>
+                    </mat-form-field>
+                    <mat-error *ngIf="userId?.dirty && userId?.hasError('required')">
+                        User ID is <strong>required</strong>
+                    </mat-error>
+                    <mat-error *ngIf="userId?.dirty && userId?.hasError('pattern')">
+                        Please provide a <strong>valid</strong> User ID
+                    </mat-error>
+                </div>
+                <div class="login-form-field">
+                    <mat-icon class="ma-10" color="primary">vpn_key</mat-icon>
+                    <mat-form-field>
+                        <mat-label>Password*</mat-label>
+                        <input matInput [type]="passwordShowIcon ? 'password' : 'text'" formControlName="loginPassword">
+                        <button *ngIf="loginPassword?.value" mat-icon-button matSuffix
+                            (click)="passwordShowIcon = !passwordShowIcon" [attr.aria-label]="'Hide password'"
+                            [attr.aria-pressed]="passwordShowIcon">
+                            <mat-icon>{{passwordShowIcon ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                        <button *ngIf="loginPassword?.value" matSuffix mat-icon-button aria-label="Clear"
+                            (click)="loginPassword?.setValue('')">
+                            <mat-icon>close</mat-icon>
+                        </button>
+                    </mat-form-field>
+                    <mat-error *ngIf="loginPassword?.dirty && loginPassword?.hasError('required')">
+                        Password is <strong>required</strong>
+                    </mat-error>
+                    <mat-error *ngIf="loginPassword?.dirty && loginPassword?.hasError('pattern')">
+                        Please provide a <strong>valid</strong> password
+                    </mat-error>
+                </div>
+                <div class="form-buttons">
+                    <button mat-raised-button color="primary" [disabled]="loginForm.dirty && !loginForm.valid" (click)="onLogin()">Sign
+                        In</button>
+                    <!-- <button mat-button color="primary">Forget Password?</button> -->
+                    <!-- <button mat-button color="primary">Sign Up</button> -->
+                </div>
+            </form>
+        </section>
     </section>
+
     <footer class="custom-footer">
         <p>
-            &copy; 2021 by Traffic AI. All Rights Reserved
+            &copy; 2021 by Millionvisions. All Rights Reserved
         </p>
     </footer>
 </section>
