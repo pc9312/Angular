@@ -15,7 +15,6 @@ export class LoadingService {
   }
 
   showLoader(){
-    console.log("Show")
     this.loader.next(true);
   }
 

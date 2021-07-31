@@ -24,7 +24,7 @@ export class ConfigPageComponent implements OnInit {
 
   onAddModule(index: number) {
     this.modelService.selectedModelIndex = index;
-    this.router.navigate(['./details', { relativeTo: this.route }]);
+    this.router.navigate(['./details'], { relativeTo: this.route });
   }
 
 }
