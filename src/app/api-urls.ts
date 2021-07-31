@@ -13,7 +13,7 @@ export const API_URLS = {
     },
     getModelConfig: {
         type: 'get',
-        staticUrl: '/the-eye/client-config/HVDM/2/config'
+        staticUrl: '/the-eye/client-config/'
     },
     saveModelConfig: {
         type: 'post',

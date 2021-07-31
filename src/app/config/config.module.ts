@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ConfigRoutingModule } from './config-routing.module';
 import { ConfigPageComponent } from './component/config-page/config-page.component';
 import { ModelDetailsComponent } from './component/model-details/model-details.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { ModelDetailsComponent } from './component/model-details/model-details.c
   ],
   imports: [
     CommonModule,
-    ConfigRoutingModule
+    ConfigRoutingModule,
+    SharedModule
   ]
 })
 export class ConfigModule { }

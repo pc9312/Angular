@@ -1,2 +1,4 @@
-<p>config-page works!</p>
-<a href="" [routerLink]="['./details']" routerLinkActive="router-link-active" >Details</a>
+<div *ngFor="let model of (modelList | async); let i=index">
+    <p>{{model.description}}</p>
+    <button mat-stroked-button (click)="onAddModule(i)">Add</button>
+</div>
