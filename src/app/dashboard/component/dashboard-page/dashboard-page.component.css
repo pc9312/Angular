@@ -18,3 +18,48 @@
 .sidenav-menu{
   min-width: 250px;
 }
+
+.pull-left {
+  float: left !important;
+}
+.image > img {
+  width: 100%;
+  max-width: 45px;
+  height: auto;
+}
+
+.img-circle {
+  border-radius: 50%;
+}
+
+img {
+  vertical-align: middle;
+}
+
+.info{
+  text-transform: initial !important;
+  letter-spacing: initial !important;
+  box-shadow: unset !important;
+  text-shadow: unset !important;
+  margin-top: 20px;
+  margin-left: 10px;
+}
+
+.info > p{
+  font: icon !important;
+  padding: 2px;
+  margin-bottom: 1px !important;
+}
+
+.info > span{
+  font: menu !important;
+  padding: 2px;
+  margin: 1px !important;
+}
+
+
+.online{
+  font-size: 11px !important;
+  width: 14px !important;
+  color: green;
+}

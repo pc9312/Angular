@@ -1,6 +1,15 @@
 <mat-drawer-container class="dashboard-container" hasBackdrop autosize>
-
   <mat-drawer #drawer class="sidenav-menu" mode="over">
+    <mat-toolbar class="custom-nav" color="primary">
+      <section class="pull-left image" >
+        <img src="../../../../assets/images/user-160x160.jpg" class="img-circle" alt="User Image">
+      </section>
+      <section class="pull-left info" >
+        <p class="user-name">User Name</p>
+        <span class="status"><mat-icon class="online">brightness_1</mat-icon> Online</span>
+      </section>
+    </mat-toolbar>
+    
     <mat-selection-list #menu [multiple]="false">
       <mat-list-option *ngFor="let menu of menuOptions" [value]="menu.name"
        (click)="navigate(menu)">
