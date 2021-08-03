@@ -1,4 +1,11 @@
-<div *ngFor="let model of (modelList | async); let i=index">
-    <p>{{model.description}}</p>
-    <button mat-stroked-button (click)="onAddModule(i)">Add</button>
+<div class="model-details-container">
+    <mat-card class="model-details-card" *ngFor="let model of (modelList | async); let i=index">
+        <img mat-card-image src="../../../../assets/images/config.jpg" alt="Photo of a config">
+        <mat-card-content>
+            <p>{{model.description}}</p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="primary" (click)="onAddModule(i)">Add</button>            
+        </mat-card-actions>
+    </mat-card>
 </div>

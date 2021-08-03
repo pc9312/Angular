@@ -1,7 +1,6 @@
 .image-box{
-    width: 90vw;
-    min-height: 80vh;
-    padding: 15px;
+    width: 100vw;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;

@@ -1,15 +1,24 @@
 .custom-nav {
-  text-transform: uppercase;
+  background: transparent;
+  padding-top: 15px;
+  padding-bottom: 10px;
+  align-items: center;
+  /* box-shadow: 1px 2px 7px rgba(0, 0, 0, 0.7); */
+  
+}
+.custom-nav span.title{
+  width: 200px;
+  margin: 15px 20px;
+  padding: 10px 20px;
   letter-spacing: 3px;
+  border-left: 6px dotted #673ab7;
   font-size: 2.5rem;
   color: #673ab7;
-  background: transparent;
-  /* padding: 40px 40px; */
-  /* box-shadow: 1px 2px 7px rgba(0, 0, 0, 0.7); */
   text-shadow: 2px 2px 2px rgb(0 0 0 / 30%);
+  text-transform: uppercase;
 }
-.custom-nav span{
-  margin: 15px 30px;
+.custom-nav img{
+  width: 225px;
 }
 
 .custom-footer {
