@@ -13,6 +13,7 @@ interface MenuOption{
 })
 export class DashboardPageComponent implements OnInit {
 
+  changeText: boolean = false;
   @ViewChild('drawer') drawer: any;
 
   menuOptions: MenuOption[] = [
@@ -33,7 +34,7 @@ export class DashboardPageComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute
-  ) { }
+  ) { this.changeText = false;}
 
   ngOnInit(): void {
   }

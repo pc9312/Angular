@@ -41,16 +41,16 @@ img {
   letter-spacing: initial !important;
   box-shadow: unset !important;
   text-shadow: unset !important;
-  margin-top: 20px;
   margin-left: 10px;
 }
 
 .info > p{
   font: icon !important;
   padding: 2px;
+  vertical-align: middle;
   margin-bottom: 1px !important;
 }
-
+/*
 .info > span{
   font: menu !important;
   padding: 2px;
@@ -62,4 +62,14 @@ img {
   font-size: 11px !important;
   width: 14px !important;
   color: green;
+}
+*/
+.menu-option:hover {
+  background-color: #7986cb;
+  color: #fff;
+}
+
+mat-list-option[aria-selected="true"] {
+  background-color: #5c6bc0;
+  color: #fff;
 }

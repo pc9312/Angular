@@ -6,13 +6,12 @@
       </section>
       <section class="pull-left info" >
         <p class="user-name">User Name</p>
-        <span class="status"><mat-icon class="online">brightness_1</mat-icon> Online</span>
+        <!--<span class="status"><mat-icon class="online">brightness_1</mat-icon> Online</span>-->
       </section>
     </mat-toolbar>
-    
     <mat-selection-list #menu [multiple]="false">
       <mat-list-option *ngFor="let menu of menuOptions" [value]="menu.name"
-       (click)="navigate(menu)">
+       (click)="navigate(menu)" class="menu-option">
         {{menu.name | titlecase}}
       </mat-list-option>
     </mat-selection-list>
