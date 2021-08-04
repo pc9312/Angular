@@ -9,8 +9,8 @@
         <!--<span class="status"><mat-icon class="online">brightness_1</mat-icon> Online</span>-->
       </section>
     </mat-toolbar>
-    <mat-selection-list #menu [multiple]="false">
-      <mat-list-option *ngFor="let menu of menuOptions" [value]="menu.name"
+    <mat-selection-list class="side-menu-list" #menu [multiple]="false">
+      <mat-list-option [routerLink]="menu.url" routerLinkActive="active" *ngFor="let menu of menuOptions" [value]="menu.name"
        (click)="navigate(menu)" class="menu-option">
         {{menu.name | titlecase}}
       </mat-list-option>

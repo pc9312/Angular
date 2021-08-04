@@ -41,7 +41,7 @@ export class DashboardPageComponent implements OnInit {
 
   navigate(menu: MenuOption){
     this.drawer.toggle();
-    this.router.navigate([menu.url]);
+    // this.router.navigate([menu.url]);
   }
 
 }
