@@ -1,9 +1,17 @@
+.config-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+}
+
 .model-details-container{
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     padding: 30px 15px;
-    min-height: 80vh; 
+    /* height: 80%; */
 }
 
 .model-details-card{
@@ -11,7 +19,8 @@
 }
 
 .model-details-card img{
-    width: 250px
+    width: 250px;
+    height: 200px;
 }
 
 .model-details-card mat-card-content, .model-details-card mat-card-actions{
