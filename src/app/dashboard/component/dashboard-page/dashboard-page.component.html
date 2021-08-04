@@ -1,30 +1,47 @@
+<mat-toolbar class="custom-nav" color="primary">
+  <div class="custom-menu-icon" (click)="drawer.toggle()">
+    <div class="icon-bar" [@hamburguerX]="!drawer.opened ? 'hamburguer' : 'topX'"></div>
+    <div class="icon-bar" [@hamburguerX]="!drawer.opened ? 'hamburguer' : 'hide'"></div>
+    <div class="icon-bar" [@hamburguerX]="!drawer.opened ? 'hamburguer' : 'bottomX'"></div>
+  </div>
+  <span class="ma-5">infinit</span>
+</mat-toolbar>
 <mat-drawer-container class="dashboard-container" hasBackdrop autosize>
-  <mat-drawer #drawer class="sidenav-menu" mode="over">
-    <mat-toolbar class="custom-nav" color="primary">
-      <section class="pull-left image" >
+  <mat-drawer #drawer class="sidenav-menu" mode="push">
+    <!-- <section class="pull-left image" >
+      <img src="../../../../assets/images/user-160x160.jpg" class="img-circle" alt="User Image">
+    </section>
+    <section class="pull-left info" >
+      <p class="user-name">User Name</p>
+      <span class="status"><mat-icon class="online">brightness_1</mat-icon> Online</span>
+    </section> -->
+    <!-- <section class="user-info">
+      <section class="pull-left image">
         <img src="../../../../assets/images/user-160x160.jpg" class="img-circle" alt="User Image">
       </section>
-      <section class="pull-left info" >
+      <section class="pull-left info">
         <p class="user-name">User Name</p>
-        <!--<span class="status"><mat-icon class="online">brightness_1</mat-icon> Online</span>-->
       </section>
-    </mat-toolbar>
+    </section> -->
     <mat-selection-list class="side-menu-list" #menu [multiple]="false">
-      <mat-list-option [routerLink]="menu.url" routerLinkActive="active" *ngFor="let menu of menuOptions" [value]="menu.name"
-       (click)="navigate(menu)" class="menu-option">
+      <mat-list-option [routerLink]="menu.url" routerLinkActive="active" *ngFor="let menu of menuOptions"
+        [value]="menu.name" (click)="navigate(menu)" class="menu-option">
+        <mat-icon mat-list-icon>{{menu.icon}}</mat-icon>
         {{menu.name | titlecase}}
       </mat-list-option>
     </mat-selection-list>
   </mat-drawer>
-  <!--page body-->
-  <mat-drawer-content>
-    <mat-toolbar class="custom-nav" color="primary">
-      <button mat-icon-button (click)="drawer.toggle()">
-        <mat-icon class="ma-5">menu</mat-icon>
-      </button>
-      <span class="ma-5">infinit</span>
-    </mat-toolbar>
-    <router-outlet></router-outlet>
+
+  <mat-drawer-content class="menu-content-container">
+
+    <div class="menu-content">
+      <router-outlet></router-outlet>
+    </div>
+    <footer class="custom-footer">
+      <p>
+        &copy; 2021 by Millionvisions. All Rights Reserved
+      </p>
+    </footer>
   </mat-drawer-content>
 
 </mat-drawer-container>

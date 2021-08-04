@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
+import { Observable, throwError } from 'rxjs';
+import { catchError, map, take, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { API_URLS } from '../api-urls';
 import { ModelDetails } from '../data-model/model-details.model';
