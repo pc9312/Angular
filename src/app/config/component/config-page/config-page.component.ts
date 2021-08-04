@@ -1,3 +1,4 @@
+import { trigger, transition, style, animate, query, stagger } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
@@ -11,13 +12,34 @@ import { ModelService } from 'src/app/services/model.service';
 @Component({
   selector: 'app-config-page',
   templateUrl: './config-page.component.html',
-  styleUrls: ['./config-page.component.css']
+  styleUrls: ['./config-page.component.css'],
+  animations: [
+    trigger('slideInOut', [
+      // transition('* <=> *', [
+      //   query(':enter',
+      //     [style({ opacity: 0 }), stagger('60ms', animate('600ms ease-out', style({ opacity: 1 })))],
+      //     { optional: true }
+      //   ),
+      //   query(':leave',
+      //     animate('200ms', style({ opacity: 0 })),
+      //     { optional: true}
+      //   )
+      // ])
+      transition(':enter', [
+        style({transform: 'translateY(-100%)', opacity: 0, transition: 'opacity 500ms'}),
+        animate('300ms ease-in', style({transform: 'translateY(0%)', opacity: 1, transition: 'opacity 500ms'}))
+      ]),
+      transition(':leave', [
+        animate('300ms ease-in', style({transform: 'translateY(-100%)', opacity: 0}))
+      ])
+    ])
+  ]
 })
 export class ConfigPageComponent implements OnInit {
 
   modelList: Observable<ModelDetails[]> = new Observable();
-  totalDataCount: number  = 0;
-  
+  totalDataCount: number = 0;
+
   lowValue: number = 0;
   highValue: number = 5;
 
@@ -30,18 +52,18 @@ export class ConfigPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.modelList = this.modelService.getModelList()
-    .pipe(
-      tap(data => {
-        this.totalDataCount = data.length;
-      }),
-      catchError((error) => {
-        // it's important that we log an error here.
-        // Otherwise you won't see an error in the console.
-        let errorMessage = "No Network. Please check the connection."
-        this.showErrorDialog(errorMessage);
-        return of([]);
-      })
-    );
+      .pipe(
+        tap(data => {
+          this.totalDataCount = data.length;
+        }),
+        catchError((error) => {
+          // it's important that we log an error here.
+          // Otherwise you won't see an error in the console.
+          let errorMessage = "No Network. Please check the connection."
+          this.showErrorDialog(errorMessage);
+          return of([]);
+        })
+      );
   }
 
   onAddModule(index: number) {

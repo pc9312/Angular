@@ -2,6 +2,7 @@
 
     <div class="model-details-container">
         <mat-card class="model-details-card"
+            [@slideInOut]="totalDataCount"
             *ngFor="let model of (modelList | async |slice: lowValue : highValue); let i=index">
             <img *ngIf="i%2 != 0" mat-card-image src="../../../../assets/images/config.jpg" alt="Photo of a config">
             <img *ngIf="i%2 == 0" mat-card-image src="../../../../assets/images/SeatBelt_GIF.gif" alt="GIF of a config">
@@ -16,7 +17,7 @@
 
     </div>
 
-    <mat-paginator [length]="totalDataCount" pageSize="5" (page)="getPaginatorData($event)"
+    <mat-paginator class="config-paginator" [length]="totalDataCount" pageSize="5" (page)="getPaginatorData($event)"
         [pageSizeOptions]="[2,5,10]" showFirstLastButtons="false">
     </mat-paginator>
 </section>
